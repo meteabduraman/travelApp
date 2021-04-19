@@ -2,13 +2,15 @@
   <img width="200" src="https://open-wc.org/hero.png"></img>
 </p>
 
+## Netlify deployment link -> [travel-app](https://musing-kowalevski-0dee24.netlify.app/)
+
 ## Travel App
 
 [![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
 
 ## Quickstart
 
-Welcome to TravelApp starter kit ! You will implement features for the app while learning about frontend development. 
+Welcome to TravelApp starter kit ! You will implement features for the app while learning about frontend development.
 
 ## Scripts
 
