@@ -55,7 +55,7 @@ export class TravelApp extends LitElement {
 
   constructor() {
     super();
-    this.title = 'DevSchool app';
+    this.title = 'My app';
   }
 
   render() {
