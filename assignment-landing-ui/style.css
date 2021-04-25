@@ -54,7 +54,8 @@ nav {
   color: var(--dark-blue);
 }
 
-#emphasized-nav-btn {
+#emphasized-nav-btn,
+.emphasized-btn {
   width: var(--emphasized-nav-button-width);
   text-align: center;
   color: var(--light-blue);
@@ -83,4 +84,26 @@ nav {
   opacity: 50%;
   font-style: italic;
   font-size: small;
+}
+
+/* Hero */
+#hero {
+  margin-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+#hero h1 {
+  font-size: xxx-large;
+}
+
+.emphasized-btn {
+  background-color: var(--light-blue);
+  color: white;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
