@@ -268,3 +268,31 @@ footer button {
 .footer-nav a {
   color: white;
 }
+
+@media screen and (min-width: 1000px) {
+  .content-description {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .content-description {
+    width: 50%;
+  }
+
+  nav {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #destination-form {
+    width: 50%;
+  }
+
+  .footer-nav {
+    width: 50%;
+  }
+}
