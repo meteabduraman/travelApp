@@ -46,5 +46,30 @@
       </h1>
       <a href="#" class="emphasized-btn">Start Trial</a>
     </section>
+
+    <form action="" method="POST" id="destination-form">
+      <div class="form-field">
+        <label for="form-destination">Destination</label>
+        <select id="form-destination" aria-placeholder="Select Location">
+          <option value="RO">Romania 🇷🇴</option>
+          <option value="EG">Egypt 🇪🇬</option>
+          <option value="TR">Turkey 🇹🇷</option>
+          <option value="JP">Japan 🇯🇵</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="form-members">Members</label>
+        <input type="number" id="form-members" placeholder="4" />
+      </div>
+      <div class="form-field">
+        <label for="form-checkin">Check-in date</label>
+        <input type="date" id="form-checkin" />
+      </div>
+      <div class="form-field">
+        <label for="form-checkout">Check-out date</label>
+        <input type="date" id="form-checkout" />
+      </div>
+      <button type="submit" class="emphasized-btn">Book now</button>
+    </form>
   </body>
 </html>

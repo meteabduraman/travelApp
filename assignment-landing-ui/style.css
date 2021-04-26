@@ -10,6 +10,10 @@
   --nav-menu-width: 70%;
   --emphasized-nav-button-width: 150px;
   --emphasized-nav-button-border-rad: 12px;
+  --form-field-height: 40px;
+
+  /* Border */
+  --lightgrey-border: 3px solid lightgrey;
 }
 
 body {
@@ -101,9 +105,61 @@ nav {
 }
 
 .emphasized-btn {
+  border: none;
   background-color: var(--light-blue);
   color: white;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+/* Destination Form */
+#destination-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 40px;
+  background-color: white;
+  border: var(--lightgrey-border);
+  border-radius: 40px;
+}
+
+#destination-form button {
+  width: var(--emphasized-nav-button-width);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible {
+  outline: none;
+  border: 3px solid var(--dark-blue);
+  transition: 0.2s ease;
+}
+
+.form-field input,
+.form-field select {
+  height: var(--form-field-height);
+  font-family: 'Ilisarniq', sans-serif;
+  border: var(--lightgrey-border);
+  border-radius: var(--emphasized-nav-button-border-rad);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.form-field input[type='number'] {
+  width: 50px;
+}
+
+.form-field label {
+  color: var(--dark-blue);
+  margin-bottom: 10px;
 }
