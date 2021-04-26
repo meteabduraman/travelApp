@@ -32,6 +32,10 @@ figure {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Nav */
 nav {
   height: var(--nav-height);
@@ -200,4 +204,67 @@ figcaption {
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 25px;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: var(--light-blue);
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+footer h2 {
+  font-size: xx-large;
+}
+
+footer input {
+  height: var(--form-field-height);
+  width: 280px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid white;
+  border-radius: 50px;
+  font-family: 'Ilisarniq', sans-serif;
+}
+
+footer button {
+  height: var(--form-field-height);
+  width: 100px;
+  border-radius: 50px;
+  border: none;
+  position: relative;
+  background-color: var(--light-blue);
+  color: white;
+  margin-left: -103px;
+  font-family: 'Ilisarniq', sans-serif;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.links {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.footer-nav a {
+  color: white;
 }
