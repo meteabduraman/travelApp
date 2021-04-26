@@ -15,6 +15,9 @@
   /* Borders */
   --lightgrey-border: 3px solid lightgrey;
   --lightblue-border: 3px solid var(--light-blue);
+
+  /* Transition */
+  --transition: 0.2s ease;
 }
 
 body {
@@ -34,6 +37,10 @@ figure {
 
 button {
   cursor: pointer;
+}
+
+input {
+  cursor: text;
 }
 
 /* Nav */
@@ -65,6 +72,12 @@ nav {
   justify-content: center;
   align-items: center;
   color: var(--dark-blue);
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: white;
+  transition: var(--transition);
 }
 
 #emphasized-nav-btn,
@@ -76,6 +89,18 @@ nav {
   background-color: white;
   border-radius: var(--emphasized-nav-button-border-rad);
   box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.64);
+  transition: var(--transition);
+}
+
+#emphasized-nav-btn:hover {
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+#emphasized-nav-btn:active {
+  background-color: var(--light-blue);
+  color: white;
+  transition: var(--transition);
 }
 
 /* Hero image */
@@ -120,6 +145,18 @@ figcaption {
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
+  transition: var(--transition);
+}
+
+.emphasized-btn:hover {
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.emphasized-btn:active {
+  background-color: white;
+  color: var(--light-blue);
+  transition: var(--transition);
 }
 
 /* Destination Form */
@@ -151,7 +188,7 @@ figcaption {
 .form-field select:focus-visible {
   outline: none;
   border: 3px solid var(--dark-blue);
-  transition: 0.2s ease;
+  transition: var(--transition);
 }
 
 .form-field input,
@@ -162,6 +199,7 @@ figcaption {
   border-radius: var(--emphasized-nav-button-border-rad);
   padding-left: 10px;
   padding-right: 10px;
+  transition: var(--transition);
 }
 
 .form-field input[type='number'] {
@@ -181,7 +219,6 @@ figcaption {
 }
 
 .content-description figure {
-  /* transform: rotate(10deg); */
   filter: sepia(100%) hue-rotate(180deg);
 }
 
@@ -204,6 +241,17 @@ figcaption {
   padding-top: 15px;
   padding-bottom: 15px;
   margin-top: 25px;
+  transition: var(--transition);
+}
+
+.outline-btn:hover {
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.outline-btn:active {
+  border: 6px solid var(--light-blue);
+  transition: var(--transition);
 }
 
 /* Footer */
@@ -243,6 +291,15 @@ footer button {
   color: white;
   margin-left: -103px;
   font-family: 'Ilisarniq', sans-serif;
+  transition: var(--transition);
+}
+
+footer button:hover {
+  background-color: var(--dark-blue);
+}
+
+footer button:active {
+  transform: scale(0.9);
 }
 
 .mail {
@@ -267,6 +324,20 @@ footer button {
 
 .footer-nav a {
   color: white;
+  transition: var(--transition);
+}
+
+.footer-nav a:hover {
+  background-color: white;
+  color: var(--light-blue);
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+}
+
+.footer-nav a:active {
+  background-color: var(--dark-blue);
 }
 
 @media screen and (min-width: 1000px) {
