@@ -371,3 +371,27 @@ footer button:active {
     width: 50%;
   }
 }
+
+@media screen and (max-width: 770px) {
+  .nav-menu a:not(#emphasized-nav-btn) {
+    visibility: hidden;
+  }
+
+  #destination-form {
+    flex-direction: column;
+    width: max-content;
+  }
+
+  #destination-form .form-field:not(:first-child),
+  #destination-form button {
+    margin-top: 20px;
+  }
+
+  .content-description img {
+    height: 400px;
+  }
+
+  .content-description p {
+    display: none;
+  }
+}
