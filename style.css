@@ -171,7 +171,7 @@ figcaption {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: var(--nav-height);
   padding: 40px;
   background-color: white;
   border: var(--lightgrey-border);
@@ -350,6 +350,14 @@ footer button:active {
     margin-right: auto;
     margin-left: auto;
   }
+
+  #hero {
+    margin-top: calc(3 * var(--nav-height));
+  }
+
+  #destination-form {
+    margin-top: calc(3 * var(--nav-height));
+  }
 }
 
 @media screen and (min-width: 1500px) {
@@ -369,6 +377,14 @@ footer button:active {
 
   .footer-nav {
     width: 50%;
+  }
+
+  #hero {
+    margin-top: calc(4 * var(--nav-height));
+  }
+
+  #destination-form {
+    margin-top: calc(4 * var(--nav-height));
   }
 }
 
