@@ -236,7 +236,7 @@ figcaption {
 .content-description {
   display: flex;
   align-items: center;
-  margin-top: 100px;
+  margin-top: var(--nav-height);
 }
 
 .content-description figure {
