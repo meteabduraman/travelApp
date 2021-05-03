@@ -57,6 +57,23 @@ nav {
   margin-top: var(--nav-top-margin);
 }
 
+.burger {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: white;
+  border-radius: 3px;
+}
+
 .logo {
   font-size: larger;
   color: white;
