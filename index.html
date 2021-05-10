@@ -13,8 +13,6 @@
   </head>
 
   <body>
-    <!-- <travel-app></travel-app> -->
-
     <nav>
       <a class="logo" href="#">Travela</a>
       <div class="nav-menu">
@@ -145,14 +143,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      fetch('https://devschool-2020.firebaseio.com/mete/places.json')
-        .then(res => res.json())
-        .then(destinations => console.log(destinations))
-        .catch(err => console.error(err));
-    </script>
-
-    <script type="module" src="./src/travel-app.js"></script>
   </body>
 </html>
