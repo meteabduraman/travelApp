@@ -4,6 +4,8 @@
 
 ## Netlify deployment link -> [travel-app](https://musing-kowalevski-0dee24.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04ef8b90-a29a-4bf8-85ed-b2c5bd3adde4/deploy-status)](https://app.netlify.com/sites/musing-kowalevski-0dee24/deploys)
+
 ## Travel App
 
 [![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
@@ -65,11 +67,13 @@ places: {
               low
             },
             stars
-          }
-          ...
+          },
+          ...,
+          number
         }
-      }
-      ...
+      },
+      ...,
+      number
     }
   }
   ...
