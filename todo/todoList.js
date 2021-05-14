@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import './todoListItem.js';
 
 class TodoList extends LitElement {
@@ -6,6 +6,15 @@ class TodoList extends LitElement {
     return {
       _todos: { type: Array },
     };
+  }
+
+  static get styles() {
+    return css`
+      article * {
+        padding: 1rem;
+        border: 1px solid red;
+      }
+    `;
   }
 
   constructor() {
@@ -27,7 +36,13 @@ class TodoList extends LitElement {
       <h1>TODO list</h1>
       <ul>
         ${this._todos.map(
-          item => html`<li><todo-list-item .todoItem=${item}></todo-list-item></li>`
+          (item, index) =>
+            html`<li>
+              <todo-list-item
+                .todoItem=${item}
+                @updateTodo=${e => this._handleUpdateTodo(index, e)}
+              ></todo-list-item>
+            </li>`
         )}
       </ul>
 
@@ -36,24 +51,36 @@ class TodoList extends LitElement {
         <input type="text" name="text" id="text" />
         <button type="submit">Add</button>
       </form>
+
+      <article
+        @click=${event => console.log(event, event.target, event.currentTarget)}
+      >
+        <div>
+          <p>
+            <span>Hello</span>
+          </p>
+        </div>
+      </article>
     `;
   }
 
   _handleFormSubmit(e) {
     e.preventDefault();
-    // debugger;
     const form = e.target;
     const formData = new FormData(form);
-    // let obj = { ...Object.fromEntries(formData), done: false };
-    // this._todos = [
-    //   ...this._todos,
-    //   { ...Object.fromEntries(formData), done: false },
-    // ];
 
     this._todos.push({ ...Object.fromEntries(formData), done: false });
     this.requestUpdate();
 
     form.reset();
+  }
+
+  _handleUpdateTodo(index, e) {
+    this._todos = [
+      ...this._todos.slice(0, index),
+      { text: e.detail.text, done: this._todos[index].done },
+      ...this._todos.slice(index + 1),
+    ];
   }
 }
 
