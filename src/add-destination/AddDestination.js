@@ -2,6 +2,7 @@ import { LitElement, html, css } from '@lion/core';
 import { Required, Pattern } from '@lion/form-core';
 import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
 import { ComboboxValidator } from './validators/ComboboxValidator.js';
+import { IsRomania } from './validators/IsRomania.js';
 import './components/AddDestinationCombobox.js';
 import './components/AddDestinationForm.js';
 import './components/AddDestinationInput.js';
@@ -58,7 +59,7 @@ export class AddDestination extends LitElement {
           <add-destination-input
             label="City name"
             name="name"
-            .validators=${[new Required()]}
+            .validators=${[new Required(), new IsRomania()]}
           ></add-destination-input>
           <add-destination-radio-group
             label="City type"
@@ -103,21 +104,24 @@ export class AddDestination extends LitElement {
   _handleFormSubmit(e) {
     e.preventDefault();
 
-    const selectedCountry = this.shadowRoot.querySelector(
-      'add-destination-combobox input'
-    ).value;
-    const selectedCountryId = this._countries.find(
-      ([, value]) => value === selectedCountry
-    )[0];
+    const isFormValid = !e.target.parentElement.showsFeedbackFor.includes(
+      'error'
+    );
 
-    const cityData = Object.fromEntries(new FormData(e.target));
-    cityData.pic = { link: cityData.pic, source: 'Unsplash', credits: '' };
-    cityData.hotels = { number: parseInt(cityData.hotels, 10) };
+    if (isFormValid) {
+      const selectedCountry = this.shadowRoot.querySelector(
+        'add-destination-combobox input'
+      ).value;
+      const selectedCountryId = this._countries.find(
+        ([, value]) => value === selectedCountry
+      )[0];
 
-    this._cityData = cityData;
-
-    console.log(this._cityData);
-    this._postCity(selectedCountryId);
+      const cityData = Object.fromEntries(new FormData(e.target));
+      cityData.pic = { link: cityData.pic, source: 'Unsplash', credits: '' };
+      cityData.hotels = { number: parseInt(cityData.hotels, 10) };
+      this._cityData = cityData;
+      this._postCity(selectedCountryId);
+    }
   }
 
   async _postCity(countryId) {
