@@ -1,11 +1,14 @@
 import { LitElement, html, css } from '@lion/core';
-import './AddDestinationCombobox.js';
-import './AddDestinationForm.js';
-import './AddDestinationInput.js';
-import './AddDestinationOption.js';
-import './AddDestinationRadio.js';
-import './AddDestinationRadioGroup.js';
-import './AddDestinationButton.js';
+import { Required, Pattern } from '@lion/form-core';
+import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
+import { ComboboxValidator } from './validators/ComboboxValidator.js';
+import './components/AddDestinationCombobox.js';
+import './components/AddDestinationForm.js';
+import './components/AddDestinationInput.js';
+import './components/AddDestinationOption.js';
+import './components/AddDestinationRadio.js';
+import './components/AddDestinationRadioGroup.js';
+import './components/AddDestinationButton.js';
 
 export class AddDestination extends LitElement {
   static get properties() {
@@ -33,10 +36,18 @@ export class AddDestination extends LitElement {
   }
 
   render() {
+    loadDefaultFeedbackMessages();
     return html`
       <add-destination-form>
         <form @submit=${this._handleFormSubmit}>
-          <add-destination-combobox label="Country" name="country">
+          <add-destination-combobox
+            label="Country"
+            name="country"
+            .validators=${[
+              new Required(),
+              new ComboboxValidator(this._countries),
+            ]}
+          >
             ${this._countries.map(
               ([, value]) =>
                 html`<add-destination-option .choiceValue=${value}
@@ -47,29 +58,39 @@ export class AddDestination extends LitElement {
           <add-destination-input
             label="City name"
             name="name"
+            .validators=${[new Required()]}
           ></add-destination-input>
-          <add-destination-radio-group label="City type" name="type">
+          <add-destination-radio-group
+            label="City type"
+            name="type"
+            .validators=${[new Required()]}
+          >
             <add-destination-radio
               label="capital"
-              .choiceValue=${'capital'}
+              .choiceValue=${`capital`}
             ></add-destination-radio>
             <add-destination-radio
               label="city"
-              .choiceValue=${'city'}
+              .choiceValue=${`city`}
             ></add-destination-radio>
             <add-destination-radio
               label="resort"
-              .choiceValue=${'resort'}
+              .choiceValue=${`resort`}
             ></add-destination-radio>
           </add-destination-radio-group>
           <add-destination-input
             label="Picture address"
             name="pic"
+            .validators=${[
+              new Required(),
+              new Pattern(/(https?:\/\/)/, { type: 'error' }),
+            ]}
           ></add-destination-input>
           <add-destination-input
             type="number"
             label="Number of hotels"
             name="hotels"
+            .validators=${[new Required()]}
           ></add-destination-input>
           <add-destination-button name="submitBtn" type="submit"
             >Submit</add-destination-button
@@ -81,6 +102,7 @@ export class AddDestination extends LitElement {
 
   _handleFormSubmit(e) {
     e.preventDefault();
+
     const selectedCountry = this.shadowRoot.querySelector(
       'add-destination-combobox input'
     ).value;
@@ -94,6 +116,7 @@ export class AddDestination extends LitElement {
 
     this._cityData = cityData;
 
+    console.log(this._cityData);
     this._postCity(selectedCountryId);
   }
 
