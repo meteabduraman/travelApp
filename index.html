@@ -25,5 +25,16 @@
       src="./src/add-destination/AddDestination.js"
     ></script>
     <script type="module" src="./src/places/PlacesPage.js"></script>
+    <script type="module">
+      import { Router } from '@vaadin/router';
+
+      const main = document.querySelector('main');
+      const router = new Router(main);
+      router.setRoutes([
+        { path: '/places', component: 'places-page' },
+        { path: '/add-destination', component: 'add-destination' },
+        { path: '/', component: 'landing-page' },
+      ]);
+    </script>
   </body>
 </html>
