@@ -9,145 +9,17 @@
     <meta name="Description" content="Discover the world with us!" />
     <base href="/" />
     <title>Travela | Discover The World With Us</title>
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
 
   <body>
-    <nav>
-      <a class="logo" href="#">Travela</a>
-      <div class="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">Tour</a>
-        <a href="#">Hotel</a>
-        <a href="/places.html">Places</a>
-        <a href="#">Contact Us</a>
-        <a id="emphasized-nav-btn" href="#">Book now</a>
-      </div>
-      <div class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
+    <nav-component></nav-component>
+    <main></main>
+    <footer-component></footer-component>
 
-    <figure class="hero-img">
-      <img
-        src="/assets/images/spencer-davis-ONVA6s03hg8-unsplash.jpg"
-        alt="Photo of the Giza Sphynx and The Great Pyramid of Khafre"
-      />
-      <figcaption>
-        Photo by
-        <a
-          href="https://unsplash.com/@spencerdavis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          >Spencer Davis</a
-        >
-        on
-        <a
-          href="https://unsplash.com/s/photos/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          >Unsplash</a
-        >
-      </figcaption>
-    </figure>
-
-    <section id="hero">
-      <h1>
-        Discover The World <br />
-        With Us
-      </h1>
-      <a href="#" class="emphasized-btn">Start Tour</a>
-    </section>
-
-    <form action="" method="POST" id="destination-form">
-      <div class="form-field">
-        <label for="form-destination">Destination</label>
-        <select id="form-destination" aria-placeholder="Select Location">
-          <option value="RO">Romania 🇷🇴</option>
-          <option value="EG">Egypt 🇪🇬</option>
-          <option value="TR">Turkey 🇹🇷</option>
-          <option value="JP">Japan 🇯🇵</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="form-members">Members</label>
-        <input type="number" id="form-members" placeholder="4" min="1" />
-      </div>
-      <div class="form-field">
-        <label for="form-checkin">Check-in date</label>
-        <input type="date" id="form-checkin" />
-      </div>
-      <div class="form-field">
-        <label for="form-checkout">Check-out date</label>
-        <input type="date" id="form-checkout" />
-      </div>
-      <button type="submit" class="emphasized-btn">Book now</button>
-    </form>
-
-    <section class="content-description">
-      <figure>
-        <img
-          src="/assets/images/jeff-ackley-EiLq3Tmn5ho-unsplash.jpg"
-          alt="Photo of an old woman in a rural area"
-          height="500px"
-        />
-        <figcaption>
-          Photo by
-          <a
-            href="https://unsplash.com/@ackley5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >Jeff Ackley</a
-          >
-          on
-          <a
-            href="https://unsplash.com/s/photos/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            >Unsplash</a
-          >
-        </figcaption>
-      </figure>
-      <div class="content-description-text">
-        <h2>Discover amazing people</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quasi
-          ipsum dolores velit aut est sint error nemo repellendus perspiciatis
-          doloribus eum nobis nihil soluta eaque, asperiores alias veritatis
-          ducimus.
-        </p>
-        <a href="#" class="outline-btn">Explore More</a>
-      </div>
-    </section>
-
-    <places-page></places-page>
-
-    <add-destination></add-destination>
-
-    <footer>
-      <h2>Get In Touch</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-        Magni inventore a dicta consectetur illo, sit corporis eligendi aliquid
-        optio illum.
-      </p>
-      <div class="mail">
-        <input
-          type="email"
-          id="footer-email"
-          placeholder="Enter your email address"
-        />
-        <button type="submit">Subscribe</button>
-      </div>
-
-      <hr style="width: 100%" />
-
-      <div class="footer-nav">
-        <p>© ING DevSchool 2021. All Rights Reserved.</p>
-        <div class="links">
-          <a href="#">Home</a>
-          <a href="#">Tour</a>
-          <a href="#">Hotel</a>
-          <a href="#">Places</a>
-          <a href="#">Contact Us</a>
-        </div>
-      </div>
-    </footer>
-
+    <script type="module" src="./src/nav/Nav.js"></script>
+    <script type="module" src="./src/landing/Landing.js"></script>
+    <script type="module" src="./src/footer/Footer.js"></script>
     <script
       type="module"
       src="./src/add-destination/AddDestination.js"
