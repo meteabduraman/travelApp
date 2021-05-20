@@ -17,4 +17,11 @@ describe('TravelApp', () => {
   it('passes the a11y audit', async () => {
     await expect(element).shadowDom.to.be.accessible();
   });
+
+  it('has a custom title', () => {
+    const newTitle = "What's new?";
+    const result = element._getCustomTitle(newTitle);
+    expect(result).to.not.be.empty;
+    expect(result).to.be.equal(`Your new title is ${newTitle}`);
+  });
 });
