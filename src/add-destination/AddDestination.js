@@ -19,7 +19,49 @@ export class AddDestination extends LitElement {
   }
 
   static get styles() {
-    return css``;
+    return css`
+      h2 {
+        display: block;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+        color: #2e4381;
+        font-size: 30px;
+      }
+
+      p {
+        display: block;
+        max-width: 500px;
+        margin: 0px auto 25px auto;
+        text-align: center;
+        color: #2e4381;
+      }
+
+      add-destination-form {
+        display: flex;
+        justify-content: center;
+      }
+
+      add-destination-form form {
+        width: 40vw;
+      }
+
+      add-destination-button {
+        display: block;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      [type='error'] ~ .form-control {
+        border-color: #b02e0c;
+      }
+
+      [type='error'] {
+        color: #b02e0c;
+        font-size: small;
+      }
+    `;
   }
 
   connectedCallback() {
@@ -38,6 +80,13 @@ export class AddDestination extends LitElement {
   render() {
     loadDefaultFeedbackMessages();
     return html`
+      <h2>Share a new place</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quasi
+        ipsum dolores velit aut est sint error nemo repellendus perspiciatis
+        doloribus eum nobis nihil soluta eaque, asperiores alias veritatis
+        ducimus.
+      </p>
       <add-destination-form>
         <form @submit=${this._handleFormSubmit}>
           <add-destination-combobox
@@ -116,11 +165,12 @@ export class AddDestination extends LitElement {
 
     this._cityData = cityData;
 
-    console.log(this._cityData);
-    this._postCity(selectedCountryId);
+    if (!e.target.parentElement.showsFeedbackFor.includes('error'))
+      this._postCity(selectedCountryId);
   }
 
   async _postCity(countryId) {
+    console.log('posted');
     fetch(
       `https://devschool-2020.firebaseio.com/mete/places/${countryId}/cities.json`,
       {

@@ -3,7 +3,14 @@ import { css } from '@lion/core';
 
 export class AddDestinationRadioGroup extends LionRadioGroup {
   static get styles() {
-    return [...super.styles, css``];
+    return [
+      ...super.styles,
+      css`
+        :host {
+          margin-top: 15px;
+        }
+      `,
+    ];
   }
 }
 
