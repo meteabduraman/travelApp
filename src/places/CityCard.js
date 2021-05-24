@@ -68,7 +68,6 @@ export class CityCard extends LitElement {
             background-image: url(${this.city.pic.link});
           }
         </style>
-        }
       </article>
     `;
   }
