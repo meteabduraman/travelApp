@@ -2,7 +2,9 @@ import { LitElement, html, css } from 'lit-element';
 
 export class Nav extends LitElement {
   static get properties() {
-    return {};
+    return {
+      isOnLandingPage: { type: Boolean },
+    };
   }
 
   static get styles() {
@@ -150,6 +152,32 @@ export class Nav extends LitElement {
           <span></span>
         </div>
       </nav>
+      ${!this.isOnLandingPage
+        ? html`
+            <style>
+              nav .logo {
+                color: var(--light-blue);
+              }
+
+              nav .nav-menu #emphasized-nav-btn {
+                background-color: var(--light-blue);
+                color: white;
+              }
+
+              nav .nav-menu a {
+                color: var(--light-blue);
+              }
+
+              nav .nav-menu a:hover {
+                color: var(--dark-blue);
+              }
+
+              nav .burger span {
+                background-color: var(--light-blue);
+              }
+            </style>
+          `
+        : ''}
     `;
   }
 }

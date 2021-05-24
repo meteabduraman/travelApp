@@ -3,6 +3,7 @@ import './components/HeroImage.js';
 import './components/Hero.js';
 import './components/DestinationForm.js';
 import './components/ContentDescription.js';
+import '../nav/Nav.js';
 
 export class Landing extends LitElement {
   static get properties() {
@@ -15,6 +16,7 @@ export class Landing extends LitElement {
 
   render() {
     return html`
+      <nav-component isOnLandingPage></nav-component>
       <hero-image></hero-image>
       <hero-component></hero-component>
       <destination-form></destination-form>

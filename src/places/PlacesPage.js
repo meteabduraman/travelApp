@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './CountryCard.js';
+import '../nav/Nav.js';
 
 export class PlacesPage extends LitElement {
   static get properties() {
@@ -45,6 +46,7 @@ export class PlacesPage extends LitElement {
 
   render() {
     return html`
+      <nav-component></nav-component>
       <h2>Our destinations</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quasi

@@ -9,6 +9,7 @@ import './components/AddDestinationOption.js';
 import './components/AddDestinationRadio.js';
 import './components/AddDestinationRadioGroup.js';
 import './components/AddDestinationButton.js';
+import '../nav/Nav.js';
 
 export class AddDestination extends LitElement {
   static get properties() {
@@ -80,6 +81,7 @@ export class AddDestination extends LitElement {
   render() {
     loadDefaultFeedbackMessages();
     return html`
+      <nav-component></nav-component>
       <h2>Share a new place</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quasi
