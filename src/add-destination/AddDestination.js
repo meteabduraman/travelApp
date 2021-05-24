@@ -73,6 +73,7 @@ export class AddDestination extends LitElement {
         this._countries = Object.entries(countries).map(([key, value]) => [
           key,
           value.name,
+          value.cities.number,
         ]);
       })
       .catch(err => console.error(err));
@@ -172,7 +173,10 @@ export class AddDestination extends LitElement {
   }
 
   async _postCity(countryId) {
-    console.log('posted');
+    const numberOfCities = this._countries.find(
+      ([key, ,]) => key === countryId
+    )[2];
+
     fetch(
       `https://devschool-2020.firebaseio.com/mete/places/${countryId}/cities.json`,
       {
@@ -185,6 +189,21 @@ export class AddDestination extends LitElement {
     )
       .then(res => res.json())
       .then(cityId => console.log(cityId))
+      .then(() => {
+        fetch(
+          `https://devschool-2020.firebaseio.com/mete/places/${countryId}/cities.json`,
+          {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ number: numberOfCities + 1 }),
+          }
+        )
+          .then(res => res.json())
+          .then(number => console.log(number))
+          .catch(err => console.log(err));
+      })
       .catch(err => console.log(err));
   }
 }
