@@ -1,8 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
+import './form/FormButton.js';
 
 export class DestinationForm extends LitElement {
   static get properties() {
-    return {};
+    return {
+      countries: { type: Object },
+    };
   }
 
   static get styles() {
@@ -27,42 +30,11 @@ export class DestinationForm extends LitElement {
         margin: 0;
       }
 
-      .emphasized-btn {
-        width: var(--emphasized-nav-button-width);
-        text-align: center;
-        color: var(--light-blue);
-        background-color: white;
-        border-radius: var(--emphasized-nav-button-border-rad);
-        box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.64);
-        transition: var(--transition);
-      }
-
-      .emphasized-btn {
-        border: none;
-        background-color: var(--light-blue);
-        color: white;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        transition: var(--transition);
-      }
-
-      .emphasized-btn:hover {
-        transform: scale(0.9);
-        transition: var(--transition);
-      }
-
-      .emphasized-btn:active {
-        background-color: white;
-        color: var(--light-blue);
-        transition: var(--transition);
-      }
-
       #destination-form {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -71,11 +43,6 @@ export class DestinationForm extends LitElement {
         background-color: white;
         border: var(--lightgrey-border);
         border-radius: 40px;
-      }
-
-      #destination-form button {
-        width: var(--emphasized-nav-button-width);
-        font-family: var(--font);
       }
 
       .form-field {
@@ -101,6 +68,10 @@ export class DestinationForm extends LitElement {
         transition: var(--transition);
       }
 
+      .form-field select {
+        width: 100%;
+      }
+
       .form-field input[type='number'] {
         width: 50px;
       }
@@ -119,10 +90,6 @@ export class DestinationForm extends LitElement {
         #destination-form .form-field {
           margin-bottom: 15px;
         }
-
-        #destination-form button {
-          margin-top: 5px;
-        }
       }
 
       @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -136,26 +103,19 @@ export class DestinationForm extends LitElement {
           margin-bottom: 15px;
           width: 50%;
         }
-
-        #destination-form button {
-          margin-top: 5px;
-        }
       }
 
       @media screen and (min-width: 769px) and (max-width: 1024px) {
         #destination-form {
           width: 680px;
           margin-top: calc(var(--nav-height) * 2);
-        }
-
-        #destination-form button {
-          width: 125px;
+          justify-content: space-evenly;
         }
       }
 
       @media screen and (min-width: 1025px) {
         #destination-form {
-          width: 680px;
+          width: 850px;
           margin-top: calc(var(--nav-height) * 3);
         }
       }
@@ -168,10 +128,9 @@ export class DestinationForm extends LitElement {
         <div class="form-field">
           <label for="form-destination">Destination</label>
           <select id="form-destination" aria-placeholder="Select Location">
-            <option value="RO">Romania 🇷🇴</option>
-            <option value="EG">Egypt 🇪🇬</option>
-            <option value="TR">Turkey 🇹🇷</option>
-            <option value="JP">Japan 🇯🇵</option>
+            ${this.countries.map(
+              ([key, value]) => html`<option value=${key}>${value}</option>`
+            )}
           </select>
         </div>
         <div class="form-field">
@@ -186,7 +145,7 @@ export class DestinationForm extends LitElement {
           <label for="form-checkout">Check-out date</label>
           <input type="date" id="form-checkout" />
         </div>
-        <button type="submit" class="emphasized-btn">Book now</button>
+        <form-button name="submitBtn" type="submit">Book now</form-button>
       </form>
     `;
   }

@@ -1,10 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 
-export class FOoter extends LitElement {
-  static get properties() {
-    return {};
-  }
-
+export class FooterComponent extends LitElement {
   static get styles() {
     return css`
       a {
@@ -219,4 +215,4 @@ export class FOoter extends LitElement {
     `;
   }
 }
-customElements.define('footer-component', FOoter);
+customElements.define('footer-component', FooterComponent);

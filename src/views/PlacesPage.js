@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import './CountryCard.js';
-import '../nav/Nav.js';
+import '../components/CountryCard.js';
+import '../components/NavComponent.js';
 
 export class PlacesPage extends LitElement {
   static get properties() {

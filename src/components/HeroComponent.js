@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
+import './form/FormButton.js';
 
-export class Hero extends LitElement {
+export class HeroComponent extends LitElement {
   static get properties() {
     return {};
   }
@@ -26,15 +27,6 @@ export class Hero extends LitElement {
       main {
         margin: 0;
       }
-      .emphasized-btn {
-        width: var(--emphasized-nav-button-width);
-        text-align: center;
-        color: var(--light-blue);
-        background-color: white;
-        border-radius: var(--emphasized-nav-button-border-rad);
-        box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.64);
-        transition: var(--transition);
-      }
 
       #hero {
         margin-top: var(--nav-height);
@@ -47,27 +39,6 @@ export class Hero extends LitElement {
 
       #hero h1 {
         font-size: xxx-large;
-      }
-
-      .emphasized-btn {
-        border: none;
-        background-color: var(--light-blue);
-        color: white;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        transition: var(--transition);
-      }
-
-      .emphasized-btn:hover {
-        transform: scale(0.9);
-        transition: var(--transition);
-      }
-
-      .emphasized-btn:active {
-        background-color: white;
-        color: var(--light-blue);
-        transition: var(--transition);
       }
 
       @media screen and (max-width: 480px) {
@@ -103,10 +74,10 @@ export class Hero extends LitElement {
           Discover The World <br />
           With Us
         </h1>
-        <a href="#" class="emphasized-btn">Start Tour</a>
+        <form-button>Start Tour</form-button>
       </section>
     `;
   }
 }
 
-customElements.define('hero-component', Hero);
+customElements.define('hero-component', HeroComponent);

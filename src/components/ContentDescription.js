@@ -1,10 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
+import './form/FormButton.js';
 
 export class ContentDescription extends LitElement {
-  static get properties() {
-    return {};
-  }
-
   static get styles() {
     return css`
       a {
@@ -27,16 +24,6 @@ export class ContentDescription extends LitElement {
         margin: 0;
       }
 
-      .outline-btn {
-        width: var(--emphasized-nav-button-width);
-        text-align: center;
-        color: var(--light-blue);
-        background-color: white;
-        border-radius: var(--emphasized-nav-button-border-rad);
-        box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.64);
-        transition: var(--transition);
-      }
-
       .content-description {
         display: flex;
         align-items: center;
@@ -56,27 +43,6 @@ export class ContentDescription extends LitElement {
 
       .content-description-text h2 {
         font-size: xx-large;
-      }
-
-      .outline-btn {
-        border: var(--lightblue-border);
-        background-color: white;
-        color: var(--light-blue);
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        margin-top: 25px;
-        transition: var(--transition);
-      }
-
-      .outline-btn:hover {
-        transform: scale(0.9);
-        transition: var(--transition);
-      }
-
-      .outline-btn:active {
-        border: 6px solid var(--light-blue);
-        transition: var(--transition);
       }
 
       @media screen and (max-width: 480px) {
@@ -167,7 +133,7 @@ export class ContentDescription extends LitElement {
             perspiciatis doloribus eum nobis nihil soluta eaque, asperiores
             alias veritatis ducimus.
           </p>
-          <a href="#" class="outline-btn">Explore More</a>
+          <form-button outline>Explore More</form-button>
         </div>
       </section>
     `;

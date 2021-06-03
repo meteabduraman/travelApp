@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
+import './form/FormButton.js';
 
-export class Nav extends LitElement {
+export class NavComponent extends LitElement {
   static get properties() {
     return {
       isOnLandingPage: { type: Boolean },
@@ -51,6 +52,8 @@ export class Nav extends LitElement {
         width: var(--nav-menu-width);
         display: flex;
         justify-content: space-between;
+        list-style-type: none;
+        align-items: center;
       }
 
       .nav-menu a {
@@ -62,27 +65,6 @@ export class Nav extends LitElement {
       }
 
       .nav-menu a:hover {
-        color: white;
-        transition: var(--transition);
-      }
-
-      #emphasized-nav-btn {
-        width: var(--emphasized-nav-button-width);
-        text-align: center;
-        color: var(--light-blue);
-        background-color: white;
-        border-radius: var(--emphasized-nav-button-border-rad);
-        box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.64);
-        transition: var(--transition);
-      }
-
-      #emphasized-nav-btn:hover {
-        transform: scale(0.9);
-        transition: var(--transition);
-      }
-
-      #emphasized-nav-btn:active {
-        background-color: var(--light-blue);
         color: white;
         transition: var(--transition);
       }
@@ -138,14 +120,16 @@ export class Nav extends LitElement {
     return html`
       <nav>
         <a class="logo" href="#">Travela</a>
-        <div class="nav-menu">
-          <a href="#">Home</a>
-          <a href="#">Tour</a>
-          <a href="#">Hotel</a>
-          <a href="/places">Places</a>
-          <a href="/add-destination">Add Destination</a>
-          <a id="emphasized-nav-btn" href="#">Book now</a>
-        </div>
+        <ul class="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tour</a></li>
+          <li><a href="#">Hotel</a></li>
+          <li><a href="/places">Places</a></li>
+          <li><a href="/add-destination">Add Destination</a></li>
+          ${this.isOnLandingPage
+            ? html` <form-button white>Book now</form-button> `
+            : html` <form-button>Book now</form-button> `}
+        </ul>
         <div class="burger">
           <span></span>
           <span></span>
@@ -157,11 +141,6 @@ export class Nav extends LitElement {
             <style>
               nav .logo {
                 color: var(--light-blue);
-              }
-
-              nav .nav-menu #emphasized-nav-btn {
-                background-color: var(--light-blue);
-                color: white;
               }
 
               nav .nav-menu a {
@@ -182,4 +161,4 @@ export class Nav extends LitElement {
   }
 }
 
-customElements.define('nav-component', Nav);
+customElements.define('nav-component', NavComponent);

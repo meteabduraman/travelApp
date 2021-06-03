@@ -1,15 +1,11 @@
-import { LionInput } from '@lion/input';
+import { LionCombobox } from '@lion/combobox';
 import { css } from '@lion/core';
 
-export class AddDestinationInput extends LionInput {
+export class FormCombobox extends LionCombobox {
   static get styles() {
     return [
       ...super.styles,
       css`
-        :host {
-          margin-top: 15px;
-        }
-
         ::slotted(.form-control) {
           height: var(--form-field-height);
           font-family: var(--font);
@@ -30,4 +26,4 @@ export class AddDestinationInput extends LionInput {
   }
 }
 
-customElements.define('add-destination-input', AddDestinationInput);
+customElements.define('form-combobox', FormCombobox);

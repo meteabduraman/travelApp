@@ -1,7 +1,7 @@
 import { LionRadioGroup } from '@lion/radio-group';
 import { css } from '@lion/core';
 
-export class AddDestinationRadioGroup extends LionRadioGroup {
+export class FormRadioGroup extends LionRadioGroup {
   static get styles() {
     return [
       ...super.styles,
@@ -14,4 +14,4 @@ export class AddDestinationRadioGroup extends LionRadioGroup {
   }
 }
 
-customElements.define('add-destination-radio-group', AddDestinationRadioGroup);
+customElements.define('form-radio-group', FormRadioGroup);
