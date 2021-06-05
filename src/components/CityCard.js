@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import './BadgeComponent.js';
 
 export class CityCard extends LitElement {
   static get properties() {
@@ -9,7 +10,12 @@ export class CityCard extends LitElement {
 
   static get styles() {
     return css`
-      article {
+      a {
+        text-decoration: none;
+      }
+
+      li a {
+        display: block;
         border-radius: 20px;
         box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.5);
         position: relative;
@@ -21,9 +27,10 @@ export class CityCard extends LitElement {
         padding: 10px 10px;
         margin-right: 15px;
         margin-bottom: 15px;
+        transition: var(--transition);
       }
 
-      article::before {
+      li a::before {
         top: 0;
         left: 0;
         border-radius: 20px;
@@ -36,6 +43,22 @@ export class CityCard extends LitElement {
           rgba(25, 102, 252, 0) 39%,
           rgba(25, 102, 252, 1) 98%
         );
+        transition: var(--transition);
+      }
+
+      li a:hover,
+      li a:focus {
+        transition: var(--transition);
+        transform: scale(0.98);
+      }
+
+      li a:hover::before,
+      li a:focus::before {
+        background: linear-gradient(
+          320deg,
+          rgba(25, 102, 252, 0) 0%,
+          rgba(25, 102, 252, 1) 100%
+        );
       }
 
       h4 {
@@ -44,31 +67,25 @@ export class CityCard extends LitElement {
         position: relative;
         color: #fff;
       }
-
-      p {
-        display: block;
-        padding: 2px 8px;
-        width: max-content;
-        border-radius: 50px;
-        position: relative;
-        color: #1966fc;
-        background-color: #fff;
-      }
     `;
   }
 
   render() {
     return html`
-      <article>
-        <h4>${this.city.name}</h4>
-        <p>${this.city.hotels.number} hotels</p>
-
-        <style>
-          article {
-            background-image: url(${this.city.pic.link});
-          }
-        </style>
-      </article>
+      <li>
+        <a
+          href="places/${this.city.name.toLowerCase().replace(' ', '-')}"
+          title=${this.city.name}
+        >
+          <h4>${this.city.name}</h4>
+          <badge-component>${this.city.hotels.number} hotels</badge-component>
+        </a>
+      </li>
+      <style>
+        li a {
+          background-image: url(${this.city.pic.link});
+        }
+      </style>
     `;
   }
 }

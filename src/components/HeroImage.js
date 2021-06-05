@@ -1,6 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
 export class HeroImage extends LitElement {
+  static get properties() {
+    return {
+      city: { type: Object },
+    };
+  }
+
   static get styles() {
     return css`
       a {
@@ -77,22 +83,31 @@ export class HeroImage extends LitElement {
 
   render() {
     return html` <figure class="hero-img">
-      <img
-        src="../../../assets/images/spencer-davis-ONVA6s03hg8-unsplash.jpg"
-        alt="Photo of the Giza Sphynx and The Great Pyramid of Khafre"
-      />
-      <figcaption>
-        Photo by
-        <a
-          href="https://unsplash.com/@spencerdavis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          >Spencer Davis</a
-        >
-        on
-        <a
-          href="https://unsplash.com/s/photos/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          >Unsplash</a
-        >
-      </figcaption>
+      ${this.city
+        ? html`<img src=${this.city[1].pic.link} alt=${this.city[1].name} />
+            <figcaption>
+              Photo by
+              <a
+                href=${`https://${this.city[1].pic.source.toLowerCase()}.com/${
+                  this.city[1].pic.credits
+                }`}
+                >${this.city[1].pic.credits}</a
+              >
+              on
+              <a href=${`https://${this.city[1].pic.source.toLowerCase()}.com`}
+                >${this.city[1].pic.source}</a
+              >
+            </figcaption>`
+        : html`<img
+              src="../../../assets/images/spencer-davis-ONVA6s03hg8-unsplash.jpg"
+              alt="Giza Sphynx and The Great Pyramid of Khafre"
+            />
+            <figcaption>
+              Photo by
+              <a href="https://unsplash.com/@spencerdavis">Spencer Davis</a>
+              on
+              <a href="https://unsplash.com">Unsplash</a>
+            </figcaption>`}
     </figure>`;
   }
 }

@@ -1,9 +1,14 @@
 import { LitElement, html, css } from 'lit-element';
 import './form/FormButton.js';
+import './BadgeComponent.js';
+import './HotelCard.js';
 
 export class HeroComponent extends LitElement {
   static get properties() {
-    return {};
+    return {
+      city: { type: Object },
+      country: { type: Array },
+    };
   }
 
   static get styles() {
@@ -41,6 +46,13 @@ export class HeroComponent extends LitElement {
         font-size: xxx-large;
       }
 
+      #hero ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
       @media screen and (max-width: 480px) {
         #hero h1 {
           width: 80%;
@@ -70,11 +82,37 @@ export class HeroComponent extends LitElement {
   render() {
     return html`
       <section id="hero">
-        <h1>
-          Discover The World <br />
-          With Us
-        </h1>
-        <form-button>Start Tour</form-button>
+        ${this.city
+          ? html`
+              <h1>${this.city[1].name}</h1>
+              ${this.city[1].type === 'capital'
+                ? html` <h2>Capital of ${this.country[1]}</h2> `
+                : html`
+                    <h2>
+                      ${this.city[1].type.charAt(0).toUpperCase() +
+                      this.city[1].type.slice(1)}
+                      in ${this.country[1]}
+                    </h2>
+                  `}
+              <badge-component
+                >${this.city[1].hotels.number} available hotels</badge-component
+              >
+              <ul>
+                ${Object.entries(this.city[1].hotels).map(
+                  ([, hotel], index) => html`<hotel-card
+                    .hotel=${hotel}
+                    .index=${index + 1}
+                  ></hotel-card>`
+                )}
+              </ul>
+            `
+          : html`
+              <h1>
+                Discover The World <br />
+                With Us
+              </h1>
+              <form-button>Start Tour</form-button>
+            `}
       </section>
     `;
   }

@@ -31,6 +31,11 @@ export class PlacesPage extends LitElement {
         text-align: center;
         color: #2e4381;
       }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
     `;
   }
 
@@ -55,7 +60,10 @@ export class PlacesPage extends LitElement {
         ducimus.
       </p>
       ${Object.entries(this._countries).map(
-        ([, value]) => html`<country-card .country=${value}></country-card>`
+        ([, value]) =>
+          html`<ul>
+            <country-card .country=${value}></country-card>
+          </ul>`
       )}
     `;
   }
