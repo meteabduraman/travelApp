@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import '@lion/button/define';
+import '../../../node_modules/@lion/button/lion-button.js';
 
 export class FormButton extends LitElement {
   static get properties() {
