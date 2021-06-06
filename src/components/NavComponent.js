@@ -51,9 +51,10 @@ export class NavComponent extends LitElement {
         height: 100%;
         width: var(--nav-menu-width);
         display: flex;
-        justify-content: space-between;
+        gap: 20px;
         list-style-type: none;
         align-items: center;
+        justify-content: flex-end;
       }
 
       .nav-menu a {
@@ -67,6 +68,12 @@ export class NavComponent extends LitElement {
       .nav-menu a:hover {
         color: white;
         transition: var(--transition);
+      }
+
+      .nav-menu-and-btn {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px;
       }
 
       @media screen and (max-width: 480px) {
@@ -120,16 +127,18 @@ export class NavComponent extends LitElement {
     return html`
       <nav>
         <a class="logo" href="#">Travela</a>
-        <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Tour</a></li>
-          <li><a href="#">Hotel</a></li>
-          <li><a href="/places">Places</a></li>
-          <li><a href="/add-destination">Add Destination</a></li>
+        <div class="nav-menu-and-btn">
+          <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tour</a></li>
+            <li><a href="#">Hotel</a></li>
+            <li><a href="/places">Places</a></li>
+            <li><a href="/add-destination">Add Destination</a></li>
+          </ul>
           ${this.isOnLandingPage
             ? html` <form-button white>Book now</form-button> `
             : html` <form-button>Book now</form-button> `}
-        </ul>
+        </div>
         <div class="burger">
           <span></span>
           <span></span>
