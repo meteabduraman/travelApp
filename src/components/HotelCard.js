@@ -15,13 +15,13 @@ export class HotelCard extends LitElement {
         text-decoration: none;
       }
 
-      li,
+      article,
       div {
         display: flex;
         flex-wrap: wrap;
       }
 
-      li {
+      article {
         background-color: white;
         color: var(--dark-blue);
         border: 1px solid lightgray;
@@ -79,7 +79,7 @@ export class HotelCard extends LitElement {
 
   render() {
     return html`
-      <li>
+      <article>
         <div class="header">
           <p class="index">${this.index}</p>
           <div class="name-address">
@@ -140,7 +140,7 @@ export class HotelCard extends LitElement {
             >Show on Google Maps 📍</a
           >
         </div>
-      </li>
+      </article>
     `;
   }
 }

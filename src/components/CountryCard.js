@@ -29,10 +29,6 @@ export class CountryCard extends LitElement {
         padding: 0;
       }
 
-      li:hover {
-        background-color: #eeeeee;
-      }
-
       h3 {
         color: #2e4381;
         font-size: 30px;
@@ -43,19 +39,19 @@ export class CountryCard extends LitElement {
 
   render() {
     return html`
-      <li>
-        <div style="margin-left: 15px; margin-bottom: 5px;">
-          <h3>${this.country.name}</h3>
-          <badge-component outline
-            >${this.country.cities.number} destinations</badge-component
-          >
-        </div>
-        <ul>
-          ${Object.entries(this.country.cities)
-            .filter(([key]) => key !== 'number')
-            .map(([, value]) => html`<city-card .city=${value}></city-card>`)}
-        </ul>
-      </li>
+      <div style="margin-left: 15px; margin-bottom: 5px;">
+        <h3>${this.country.name}</h3>
+        <badge-component outline
+          >${this.country.cities.number} destinations</badge-component
+        >
+      </div>
+      <ul>
+        ${Object.entries(this.country.cities)
+          .filter(([key]) => key !== 'number')
+          .map(
+            ([, value]) => html`<li><city-card .city=${value}></city-card></li>`
+          )}
+      </ul>
     `;
   }
 }

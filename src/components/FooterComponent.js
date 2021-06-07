@@ -22,6 +22,7 @@ export class FooterComponent extends LitElement {
       main {
         margin: 0;
       }
+
       footer {
         display: flex;
         flex-direction: column;
@@ -85,6 +86,7 @@ export class FooterComponent extends LitElement {
 
       .links {
         display: flex;
+        list-style-type: none;
         width: 50%;
         justify-content: space-between;
       }
@@ -203,13 +205,13 @@ export class FooterComponent extends LitElement {
 
         <div class="footer-nav">
           <p>© ING DevSchool 2021. All Rights Reserved.</p>
-          <div class="links">
-            <a href="#">Home</a>
-            <a href="#">Tour</a>
-            <a href="#">Hotel</a>
-            <a href="#">Places</a>
-            <a href="#">Contact Us</a>
-          </div>
+          <ul class="links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tour</a></li>
+            <li><a href="#">Hotel</a></li>
+            <li><a href="/places">Places</a></li>
+            <li><a href="/add-destination">Add Destination</a></li>
+          </ul>
         </div>
       </footer>
     `;

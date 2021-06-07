@@ -127,7 +127,7 @@ export class DestinationForm extends LitElement {
       <form action="" method="POST" id="destination-form">
         <div class="form-field">
           <label for="form-destination">Destination</label>
-          <select id="form-destination" aria-placeholder="Select Location">
+          <select id="form-destination">
             ${this.countries.map(
               ([key, value]) => html`<option value=${key}>${value}</option>`
             )}

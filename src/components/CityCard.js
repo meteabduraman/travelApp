@@ -14,7 +14,7 @@ export class CityCard extends LitElement {
         text-decoration: none;
       }
 
-      li a {
+      a {
         display: block;
         border-radius: 20px;
         box-shadow: 0px 2px 14px -2px rgba(127, 127, 127, 0.5);
@@ -30,7 +30,7 @@ export class CityCard extends LitElement {
         transition: var(--transition);
       }
 
-      li a::before {
+      a::before {
         top: 0;
         left: 0;
         border-radius: 20px;
@@ -46,14 +46,14 @@ export class CityCard extends LitElement {
         transition: var(--transition);
       }
 
-      li a:hover,
-      li a:focus {
+      a:hover,
+      a:focus {
         transition: var(--transition);
         transform: scale(0.98);
       }
 
-      li a:hover::before,
-      li a:focus::before {
+      a:hover::before,
+      a:focus::before {
         background: linear-gradient(
           320deg,
           rgba(25, 102, 252, 0) 0%,
@@ -72,17 +72,15 @@ export class CityCard extends LitElement {
 
   render() {
     return html`
-      <li>
-        <a
-          href="places/${this.city.name.toLowerCase().replace(' ', '-')}"
-          title=${this.city.name}
-        >
-          <h4>${this.city.name}</h4>
-          <badge-component>${this.city.hotels.number} hotels</badge-component>
-        </a>
-      </li>
+      <a
+        href="places/${this.city.name.toLowerCase().replace(' ', '-')}"
+        title=${this.city.name}
+      >
+        <h4>${this.city.name}</h4>
+        <badge-component>${this.city.hotels.number} hotels</badge-component>
+      </a>
       <style>
-        li a {
+        a {
           background-image: url(${this.city.pic.link});
         }
       </style>

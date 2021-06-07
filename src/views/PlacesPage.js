@@ -36,6 +36,10 @@ export class PlacesPage extends LitElement {
         list-style-type: none;
         padding: 0;
       }
+
+      li:hover {
+        background-color: #eeeeee;
+      }
     `;
   }
 
@@ -59,12 +63,12 @@ export class PlacesPage extends LitElement {
         doloribus eum nobis nihil soluta eaque, asperiores alias veritatis
         ducimus.
       </p>
-      ${Object.entries(this._countries).map(
-        ([, value]) =>
-          html`<ul>
-            <country-card .country=${value}></country-card>
-          </ul>`
-      )}
+      <ul>
+        ${Object.entries(this._countries).map(
+          ([, value]) =>
+            html` <li><country-card .country=${value}></country-card></li> `
+        )}
+      </ul>
     `;
   }
 }

@@ -6,7 +6,7 @@ import './HotelCard.js';
 export class HeroComponent extends LitElement {
   static get properties() {
     return {
-      city: { type: Object },
+      city: { type: Array },
       country: { type: Array },
     };
   }
@@ -89,21 +89,27 @@ export class HeroComponent extends LitElement {
                 ? html` <h2>Capital of ${this.country[1]}</h2> `
                 : html`
                     <h2>
-                      ${this.city[1].type.charAt(0).toUpperCase() +
-                      this.city[1].type.slice(1)}
-                      in ${this.country[1]}
+                      ${`${this.city[1].type
+                        .charAt(0)
+                        .toUpperCase()}${this.city[1].type.slice(1)} in ${
+                        this.country[1]
+                      }`}
                     </h2>
                   `}
               <badge-component
                 >${this.city[1].hotels.number} available hotels</badge-component
               >
               <ul>
-                ${Object.entries(this.city[1].hotels).map(
-                  ([, hotel], index) => html`<hotel-card
-                    .hotel=${hotel}
-                    .index=${index + 1}
-                  ></hotel-card>`
-                )}
+                ${Object.entries(this.city[1].hotels)
+                  .filter(([key]) => key !== 'number')
+                  .map(
+                    ([, hotel], index) => html`<li>
+                      <hotel-card
+                        .hotel=${hotel}
+                        .index=${index + 1}
+                      ></hotel-card>
+                    </li>`
+                  )}
               </ul>
             `
           : html`
