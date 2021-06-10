@@ -52,6 +52,7 @@ export class AddDestinationPage extends LitElement {
         width: max-content;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
       }
 
       [type='error'] ~ .form-control {
@@ -153,7 +154,6 @@ export class AddDestinationPage extends LitElement {
     cityData.hotels = { number: parseInt(cityData.hotels, 10) };
 
     this._cityData = cityData;
-
     if (!e.target.parentElement.showsFeedbackFor.includes('error'))
       this._postCity(selectedCountryId);
   }

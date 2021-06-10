@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import { Router } from '@vaadin/router';
 import './views/LandingPage.js';
 import './views/PlacesPage.js';
@@ -7,6 +7,16 @@ import './views/AddDestinationPage.js';
 import './components/FooterComponent.js';
 
 export class TravelApp extends LitElement {
+  static get styles() {
+    return css`
+      main {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    `;
+  }
+
   firstUpdated() {
     const main = this.shadowRoot.querySelector('main');
     const router = new Router(main);

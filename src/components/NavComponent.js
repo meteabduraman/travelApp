@@ -108,18 +108,6 @@ export class NavComponent extends LitElement {
           display: flex;
         }
       }
-
-      @media screen and (min-width: 769px) and (max-width: 1024px) {
-        .nav-menu {
-          width: 500px;
-        }
-      }
-
-      @media screen and (min-width: 1025px) {
-        nav {
-          margin: var(--nav-top-margin) calc((100vw - 680px) / 2);
-        }
-      }
     `;
   }
 

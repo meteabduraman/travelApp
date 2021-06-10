@@ -82,6 +82,7 @@ export class FooterComponent extends LitElement {
         align-items: center;
         justify-content: space-between;
         width: 85%;
+        max-width: 900px;
       }
 
       .links {

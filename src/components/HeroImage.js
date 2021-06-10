@@ -31,14 +31,16 @@ export class HeroImage extends LitElement {
 
       .hero-img {
         width: 100%;
+        max-height: 700px;
+        overflow: hidden;
         z-index: -100;
         position: absolute;
         top: 0;
+        left: 0;
       }
 
       .hero-img img {
         width: 100%;
-        height: auto;
       }
 
       figcaption {
