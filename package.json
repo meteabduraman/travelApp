@@ -26,7 +26,7 @@
     "prepare": "husky install"
   },
   "name": "travel-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webcomponent travel-app following open-wc recommendations",
   "author": "travel-app",
   "license": "MIT",
