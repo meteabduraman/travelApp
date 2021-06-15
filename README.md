@@ -1,20 +1,43 @@
 <p align="center">
-  <img width="200" src="https://open-wc.org/hero.png"></img>
+  <a href="https://musing-kowalevski-0dee24.netlify.app/"><img width="200" src="assets/images/logo.png"></img></a>
 </p>
 
-## Netlify deployment link -> [travel-app](https://musing-kowalevski-0dee24.netlify.app/)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/04ef8b90-a29a-4bf8-85ed-b2c5bd3adde4/deploy-status)](https://app.netlify.com/sites/musing-kowalevski-0dee24/deploys)
-
-## Travel App
+## 🗺️ Travel App
 
 [![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04ef8b90-a29a-4bf8-85ed-b2c5bd3adde4/deploy-status)](https://app.netlify.com/sites/musing-kowalevski-0dee24/deploys)
 
-## Quickstart
+### ✨ Give it a try
 
-Welcome to TravelApp starter kit ! You will implement features for the app while learning about frontend development.
+👉🏽 [Travela on Netlify](https://musing-kowalevski-0dee24.netlify.app/) 👈🏽
 
-## Scripts
+### 📝 About
+
+Welcome to the development place of Travela, the travel app.
+One of the project's values is seamless usability, so, without fruther ado, check it out by using the link above. 🗺️
+
+If you would like to learn more about how Travela works, keep reading! 👀
+
+### 🎊 Features
+
+The features of Travela are dispersed throughout its **4 pages**: **Landing**, **Places**, **City Details** and **Add Destination**.
+
+- 🏠 **Landing Page** features a breathable UI and:
+
+  - _🛠️WIP_ a quick check form (checks the availability of selected location and timeframe)
+  - content description component
+
+- 📌 **Places Page** features a collection of all the entries in the Destinations API:
+
+  - grouped on countries (country cards)
+  - each country has an internal list of all its destinations (city cards)
+  - each city plays as an anchor to its details page
+
+- 🏙️ **City Details Page** is routed through Vaadin to be accessed in the URL by the city's name and it renders a list of all hotels in the selected city (hotel cards)
+
+- ➕ **Add Destination Page** features a form built using Lion Web Components, that validates the data and posts it to the Destinations API, making it customizable.
+
+### 📜 Scripts
 
 - `start` runs your app for development, reloading on file changes
 - `start:build` runs your app after it has been built using the build command
@@ -22,12 +45,22 @@ Welcome to TravelApp starter kit ! You will implement features for the app while
 - `test` runs your test suite with Web Test Runner
 - `lint` runs the linter for your project
 
-## Interacting with the **Destinations API**
+## ⚙️ Used packages
+
+To implement the app, the following packages were used:
+
+- Web components (LitElement, LitHTML, Lion)
+- Vaadin Router
+- Open WC Testing
+- Rollup bundling
+- Google Firestore for Destinations API
+
+## 📨 Interacting with the **Destinations API**
 
 The Destinations API provides the data for Travela.
 It can be accessed [here](https://devschool-2020.firebaseio.com/mete.json).
 
-### Structure
+### 🧬 Structure
 
 ```js
 places: {
